@@ -19,11 +19,11 @@ The objective of this assignment is to create a RESTful API that allows users to
 
 3. **Build the API Endpoints:**
    - **Create a card:** Create an endpoint to add a new card to the help center.
-     - `POST /cards`: This should accept the card details (title, description, link) in the request body and create a new card.
+     - `POST /cards`: This should accept the card details (title, description, link) in the request body and create a new card. ✅
    - **Get all cards:** Create an endpoint to retrieve all the cards.
-     - `GET /cards`: This should return a list of all cards in the help center.
+     - `GET /cards`: This should return a list of all cards in the help center. ✅
    - **Get a specific card:** Create an endpoint to retrieve the details of a single card by its title.
-     - `GET /cards/:title`: This should return the details of a specific card.
+     - `GET /cards/:title`: This should return the details of a specific card. ✅
 
 4. **Error Handling:**
    - Implement error handling for cases such as trying to access a non-existent card, validation errors, and server errors.

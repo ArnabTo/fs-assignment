@@ -5,7 +5,7 @@ const getCards = async (req, res) => {
     try {
         const allCards = await Card.find();
         if (!allCards) {
-            res.status(404).json({ success: false, message: 'No cards found' });
+            return res.status(404).json({ success: false, message: 'No cards found' });
         }
         // console.log(allCards)
         res.status(200).json({
@@ -14,26 +14,49 @@ const getCards = async (req, res) => {
             data: allCards
         });
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
+        return res.status(500).json({ success: false, message: error.message });
     }
 }
 
 const addCards = async (req, res) => {
-    const { title, description } = req.body;
+    const { title, description, link } = req.body;
 
     try {
-        const newCard = await Card.create({ title, description });
+
+        if (!title || !description) {
+            return res.status(400).json({ success: false, message: 'Title and description are required' });
+        }
+        const newCard = await Card.create({ title, description, link });
         if (!newCard) {
             res.status(400).json({ message: 'Invalid data' });
         }
-        res.status(201).json({
+        return res.status(201).json({
             success: true,
             message: 'Card created successfully!',
             data: newCard
         });
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
+        return res.status(500).json({ success: false, message: error.message });
     }
 }
 
-module.exports = { getCards, addCards };
+
+const searchCards = async (req, res) => {
+    try {
+        const findCard = await Card.findOne({ title });
+        if (!findCard) {
+            return res.status(404).json({ success: false, message: 'Card not found' });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: 'Card found successfully!',
+            data: findCard
+        });
+    } catch (error) {
+        return res.status(500).json({ success: false, message: error.message });
+    }
+}
+
+
+module.exports = { getCards, addCards, searchCards };

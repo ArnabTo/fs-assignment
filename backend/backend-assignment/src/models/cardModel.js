@@ -12,8 +12,12 @@ const cardSchema = new mongoose.Schema({
  description: {
     type: String,
     required: true
+ },
+ link: {
+    type: String,
  }
-},{
+},
+{
    collection: 'cardCollection'
 });
 
