@@ -1,4 +1,5 @@
 const express = require('express');
+const cardRoutes = require('./routes/cardRoutes');
 
 
 const app = express();
@@ -6,7 +7,7 @@ const app = express();
 // middleware
 app.use(express.json());
 
-const cardRoutes = require('./routes/cardRoutes');
+// routes
 app.use('/card', cardRoutes);
 
 

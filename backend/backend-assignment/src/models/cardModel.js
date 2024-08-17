@@ -13,7 +13,10 @@ const cardSchema = new mongoose.Schema({
     type: String,
     required: true
  }
-})
+},{
+   collection: 'cardCollection'
+});
 
 const Card = mongoose.model('Card', cardSchema);
 module.exports = Card;
+
