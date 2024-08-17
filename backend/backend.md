@@ -11,8 +11,8 @@ The objective of this assignment is to create a RESTful API that allows users to
    - Create a new Node.js project using Express.js. ✅
    - Set up a basic server with a single endpoint to check if the server is running (e.g., `GET /ping`). ✅
 
-2. **Create a Card Model:**
-   - Design a model for a card. Each card should have the following fields (You can chooose any ORM and database):
+2. **Create a Card Model:** ✅
+   - Design a model for a card. Each card should have the following fields (You can chooose any ORM and database): 
      - `id` (string): A unique identifier for the card.
      - `title` (string): The title of the card (e.g., "Branches").
      - `description` (string): A brief description of what the card represents (e.g., "Abstract Branches lets you manage, version, and document your designs in one place.").
