@@ -51,7 +51,7 @@ const searchCards = async (req, res) => {
 
         const otherMatches = await Card.find({
             title: { $regex: title, $options: 'i' },
-            _id: { $nin: startingMatches.map((card) => card._id) }
+            _id: { $nin: matches.map((card) => card._id) }
         });
 
         const allMatches = [...matches, ...otherMatches];

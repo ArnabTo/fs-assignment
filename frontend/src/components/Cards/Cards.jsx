@@ -11,7 +11,7 @@ export default function Cards() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get('http://localhost:5000/card');
+            const response = await axios.get('https://fs-assignment.vercel.app/card');
             dispatch(addCard(response.data.data))
         }
         fetchData();

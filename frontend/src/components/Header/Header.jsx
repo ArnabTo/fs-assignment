@@ -17,7 +17,7 @@ const Header = () => {
             // Fetch data if there's a query
             const fetchQueryCards = async () => {
                 try {
-                    const response = await axios.get(`http://localhost:5000/card/${query}`);
+                    const response = await axios.get(`https://fs-assignment.vercel.app/card/${query}`);
                     if (response.data.success) {
                         dispatch(filturedCards(response.data.data));
                     }
