@@ -42,8 +42,12 @@ const addCards = async (req, res) => {
 
 
 const searchCards = async (req, res) => {
+
+    const { title } = req.params;
+
+    console.log(title)
     try {
-        const findCard = await Card.findOne({ title });
+        const findCard = await Card.findOne({ title: { $regex: title, $options: 'i' } });
         if (!findCard) {
             return res.status(404).json({ success: false, message: 'Card not found' });
         }
