@@ -41,26 +41,34 @@ const addCards = async (req, res) => {
 }
 
 
-const searchCards = async (req, res) => {
 
+const searchCards = async (req, res) => {
     const { title } = req.params;
 
-    console.log(title)
     try {
-        const findCard = await Card.findOne({ title: { $regex: title, $options: 'i' } });
-        if (!findCard) {
-            return res.status(404).json({ success: false, message: 'Card not found' });
+
+        const matches = await Card.find({ title: { $regex: `^${title}`, $options: 'i' } });
+
+        const otherMatches = await Card.find({
+            title: { $regex: title, $options: 'i' },
+            _id: { $nin: startingMatches.map((card) => card._id) }
+        });
+
+        const allMatches = [...matches, ...otherMatches];
+
+        if (!allMatches.length) {
+            return res.status(404).json({ success: false, message: 'No cards found' });
         }
 
         return res.status(200).json({
             success: true,
-            message: 'Card found successfully!',
-            data: findCard
+            message: 'Cards found successfully!',
+            data: allMatches
         });
     } catch (error) {
         return res.status(500).json({ success: false, message: error.message });
     }
-}
+};
 
 
 module.exports = { getCards, addCards, searchCards };
