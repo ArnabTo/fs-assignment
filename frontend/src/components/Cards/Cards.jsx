@@ -34,7 +34,7 @@ export default function Cards() {
                         ))
                     ) : (<p className='text-center text-black mx-auto text-2xl'>Sorry! No cards found 😢</p>)
                 ) : (
-                    <div className='grid gird-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 lg:gap-16 px-4'>
+                    <div className='grid gird-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 px-4'>
                         {
                             cards.map((card) => (
                                 <div key={card._id} className="bg-[#F4F6F8] rounded-md px-5 pb-7 border-1 border-blue-100">
