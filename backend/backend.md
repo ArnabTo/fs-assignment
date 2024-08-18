@@ -26,7 +26,7 @@ The objective of this assignment is to create a RESTful API that allows users to
      - `GET /cards/:title`: This should return the details of a specific card. ✅
 
 4. **Error Handling:**
-   - Implement error handling for cases such as trying to access a non-existent card, validation errors, and server errors.
+   - Implement error handling for cases such as trying to access a non-existent card, validation errors, and server errors. ✅
 
 
 ### Submission:
